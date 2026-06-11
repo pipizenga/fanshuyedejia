@@ -1,0 +1,477 @@
+/* ===== 全局重置 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== 全站背景：一张温馨的猫咪大图 ===== */
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+    color: #f5f5f5;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===== 头部导航（半透明毛玻璃） ===== */
+header {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffaa66;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo i {
+    color: #ffaa66;
+}
+
+nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 40px;
+    transition: 0.2s;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffaa66;
+}
+
+/* 移动端菜单按钮 */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        position: relative;
+    }
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        padding: 1rem;
+        border-radius: 20px;
+        margin-top: 1rem;
+    }
+    nav.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ===== 主视觉区（Hero - 仅首页使用） ===== */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    margin-bottom: 40px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 按钮通用 */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(95deg, #ff8c00, #ff6500);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+/* ===== 内容区块 ===== */
+.section {
+    max-width: 1280px;
+    margin: 60px auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #ffaa66;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* ===== 卡片网格 ===== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* 猫咪卡片（寻猫启示卡片） */
+.card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(2px);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+    cursor: pointer;
+    color: #333;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 28px rgba(0,0,0,0.25);
+    background: rgba(255,255,255,0.98);
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #e0d6cc;
+}
+
+.no-img {
+    width: 100%;
+    height: 220px;
+    background: #e0d6cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #bc9a6c;
+}
+
+.card-info {
+    padding: 1.5rem;
+}
+
+.card-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #c45a1b;
+}
+
+.card-info p {
+    margin: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+}
+
+/* 救助指南卡片（首页） */
+.guide-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(2px);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.98);
+}
+
+.guide-card i {
+    font-size: 2.5rem;
+    color: #ff8c00;
+    margin-bottom: 1rem;
+}
+
+/* 两栏布局（合作机构 + 领养故事） */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.partners, .stories {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(2px);
+    border-radius: 28px;
+    padding: 2rem;
+    color: #333;
+}
+
+.partner-list {
+    list-style: none;
+}
+
+.partner-list li {
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.story-card {
+    background: #fef8f0;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 20px;
+}
+
+.story-card i {
+    color: #ff8c00;
+    margin-right: 8px;
+}
+
+/* 订阅区 */
+.subscribe {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 48px;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 40px;
+}
+
+.subscribe-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.subscribe h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.subscribe-form input {
+    flex: 2;
+    padding: 14px 24px;
+    border-radius: 60px;
+    border: none;
+    font-size: 1rem;
+    background: white;
+}
+
+.subscribe-form button {
+    background: #ff8c00;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 60px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.subscribe-form button:hover {
+    background: #e67e00;
+}
+
+/* 表单卡片（publish, adopt） */
+.form-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+    border-radius: 32px;
+    padding: 2rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #4a2e1b;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ffc489;
+    border-radius: 60px;
+    font-size: 1rem;
+    background: #fffaf2;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff8c00;
+    box-shadow: 0 0 0 3px rgba(255,140,0,0.1);
+}
+
+.btn-submit {
+    background: linear-gradient(95deg, #ff8c00, #ff6500);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 1rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* 详情页卡片 */
+.detail-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+    border-radius: 32px;
+    padding: 2rem;
+    max-width: 650px;
+    margin: 0 auto;
+    color: #333;
+}
+
+.detail-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 24px;
+    margin-bottom: 1.5rem;
+}
+
+/* 页脚 */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 60px;
+    color: #ccc;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ffaa66;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .section { padding: 0 1rem; }
+    .section-title { font-size: 1.6rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .two-columns { grid-template-columns: 1fr; }
+    .form-card { padding: 1.5rem; }
+}

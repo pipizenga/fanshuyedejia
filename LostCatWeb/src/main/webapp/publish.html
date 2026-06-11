@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布寻猫</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo"><i class="fas fa-cat"></i> 流浪猫领养中心</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">首页</a>
+      <a href="list.html">寻猫启示</a>
+      <a href="adopt.html">领养申请</a>
+      <a href="publish.html">发布寻猫</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <h2 class="section-title">📝 发布寻猫启示</h2>
+  <div class="form-card">
+    <form id="publishForm">
+      <div class="form-group">
+        <label>猫咪昵称 *</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>丢失地点</label>
+        <input type="text" name="location">
+      </div>
+      <div class="form-group">
+        <label>丢失日期</label>
+        <input type="date" name="lostDate">
+      </div>
+      <div class="form-group">
+        <label>特征描述</label>
+        <textarea name="desc" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label>联系电话 *</label>
+        <input type="tel" name="contact" required>
+      </div>
+      <div class="form-group">
+        <label>图片 URL（可选）</label>
+        <input type="url" id="imageUrl" name="imageUrl" placeholder="https://...">
+      </div>
+      <div class="form-group">
+        <label>或上传本地图片（Base64 存储）</label>
+        <input type="file" id="catImage" accept="image/*">
+        <div id="previewContainer"></div>
+        <div id="uploadStatus" class="upload-status"></div>
+        <input type="hidden" id="imageBase64" name="imageBase64">
+      </div>
+      <div id="publishStatus" style="margin-bottom:16px; text-align:center;"></div>
+      <button type="submit" class="btn-submit">🐾 发布</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">首页</a>
+    <a href="list.html">寻猫启示</a>
+    <a href="adopt.html">领养申请</a>
+    <a href="publish.html">发布寻猫</a>
+  </div>
+  <p>© 2026 流浪猫领养中心 | 曾候恩</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    handleImageUpload('catImage', 'previewContainer', 'imageUrl', 'imageBase64', 'uploadStatus');
+    submitPublishForm('publishForm', 'publishStatus');
+  });
+</script>
+</body>
+</html>

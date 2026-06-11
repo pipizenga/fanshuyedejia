@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流浪猫领养中心 | 让爱不再流浪</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo"><i class="fas fa-cat"></i> 流浪猫领养中心</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">首页</a>
+      <a href="list.html">寻猫启示</a>
+      <a href="adopt.html">领养申请</a>
+      <a href="publish.html">发布寻猫</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>让爱不再流浪</h1>
+    <p>我们专注于帮助流浪猫找到温暖的家，您的每一次转发、领养，都是它们新生活的开始。</p>
+    <div class="hero-buttons">
+      <a href="adopt.html" class="btn btn-primary">我要领养</a>
+      <a href="publish.html" class="btn btn-secondary">发布寻猫</a>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <h2 class="section-title">🐾 最新寻猫启事</h2>
+  <div class="card-grid" id="latestCats"></div>
+  <div style="text-align:center; margin-top:30px;">
+    <a href="list.html" class="btn btn-primary">查看更多寻猫启示 <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<section class="section two-columns">
+  <div class="partners">
+    <h3><i class="fas fa-handshake"></i> 合作机构</h3>
+    <ul class="partner-list">
+      <li><i class="fas fa-hospital"></i> 爱心宠物医院 · 010-12345678</li>
+      <li><i class="fas fa-building"></i> 流浪动物收容所 · 海淀区中关村大街1号</li>
+      <li><i class="fas fa-clinic-medical"></i> 小动物救助站 · 朝阳区建国路123号</li>
+    </ul>
+  </div>
+  <div class="stories">
+    <h3><i class="fas fa-book-open"></i> 领养成功故事</h3>
+    <div class="story-card"><i class="fas fa-quote-left"></i> “领养了‘小橘’，它现在胖嘟嘟的，超粘人！”<br><span>—— 王女士</span></div>
+    <div class="story-card"><i class="fas fa-quote-left"></i> “通过寻猫启示两小时找回‘豆豆’，感谢平台！”<br><span>—— 李先生</span></div>
+  </div>
+</section>
+
+<div class="subscribe">
+  <div class="subscribe-box">
+    <h3><i class="fas fa-envelope"></i> 订阅福利</h3>
+    <p>获取最新领养资讯、猫咪冷知识和救助指南</p>
+    <div class="subscribe-form">
+      <input type="email" id="subEmail" placeholder="您的电子邮箱">
+      <button type="button" onclick="alert('感谢订阅！我们会定期发送猫咪信息。')">订阅</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">首页</a>
+    <a href="list.html">寻猫启示</a>
+    <a href="adopt.html">领养申请</a>
+    <a href="publish.html">发布寻猫</a>
+  </div>
+  <p>© 2026 流浪猫领养中心 | 人工智能与信息工程学院 曾候恩 | 公益热线 400-123-4567</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderLatestCats('latestCats', 3);
+  });
+</script>
+</body>
+</html>

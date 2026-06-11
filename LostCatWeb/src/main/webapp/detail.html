@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猫咪详情</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo"><i class="fas fa-cat"></i> 流浪猫领养中心</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="main-nav">
+      <a href="index.html">首页</a>
+      <a href="list.html">寻猫启示</a>
+      <a href="adopt.html">领养申请</a>
+      <a href="publish.html">发布寻猫</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div id="detailContainer"></div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">首页</a>
+    <a href="list.html">寻猫启示</a>
+    <a href="adopt.html">领养申请</a>
+    <a href="publish.html">发布寻猫</a>
+  </div>
+  <p>© 2026 流浪猫领养中心 | 曾候恩</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (!id) {
+      document.getElementById('detailContainer').innerHTML = '<p style="text-align:center; color:white;">未找到相关信息。</p>';
+      return;
+    }
+    renderDetail(id);
+  });
+</script>
+</body>
+</html>
