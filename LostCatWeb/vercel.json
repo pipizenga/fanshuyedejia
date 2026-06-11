@@ -1,6 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "routes": [
-    { "src": "/(.*)", "dest": "/src/main/webapp/$1" }
+    { "src": "^/$", "dest": "/src/main/webapp/index.html" },
+    { "src": "^/(.*)$", "dest": "/src/main/webapp/$1" }
   ]
 }
